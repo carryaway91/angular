@@ -1,0 +1,16 @@
+<h3>| uppercase</h3>
+<p>{{ 'toto je napisane malym ale cez "| uppercase" sa to uppercasne'| uppercase }}</p>
+<h3>| date</h3>
+<p>{{ exactDate | date }}</p>
+<h3>| date:'fullDate' => parametrizovanie</h3>
+<p>{{ exactDate | date:'fullDate' }}</p>
+<h3>Chainovanie: | date:'fullDate' | uppercase </h3>
+<p>{{ exactDate | date:'fullDate'| uppercase }}</p>
+<h3>Custom Pipe: Shorten od Peter Babej Kmec</h3>
+<p>{{ 'Peter Babej Kmec' | shorten }}</p>
+<h3>Custom pipe with parameter: | power:2  =>  12*2=24</h3>
+<p>{{ 12 | power:2 }}</p>
+
+<hr>
+<h1>Kazdu pipe registruj v declarations!</h1>
+<h2>Pipe su funkcie ktore transformuju hodnotu v template na inu alebo ju modifikuju</h2>

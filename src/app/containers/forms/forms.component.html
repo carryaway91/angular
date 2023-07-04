@@ -1,0 +1,100 @@
+<div class="wrapper">
+    <div class="container">
+        <h2>Template Driven Form</h2>
+        <form #ttdForm="ngForm" (ngSubmit)="onSubmit(ttdForm)">
+            <div class="user-data" #userData="ngModelGroup" ngModelGroup="userData">
+                <div class="form-controll">
+                    <label for="name">Name:</label>
+                    <div>
+                        <input required ngModel #name="ngModel" type="text" name="name" id="name">
+                        <p *ngIf="!name.valid && name.touched">Please add a name!</p>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" (click)="populate()">Populate name</button>
+                </div>
+                <div class="form-controll">
+                    <label for="email">Email:</label>
+                    <div>
+                        <input required ngModel type="email" #email="ngModel" email name="email" id="email">
+                        <p *ngIf="!email.valid && email.touched">Please enter correct email!</p>
+                    </div>
+                </div>
+            </div>
+            <div #passwordCheck="ngModelGroup" ngModelGroup="passwordCheck">
+                <div class="form-controll">
+                    <label for="password">Password:</label>
+                    <input minlength="3" required ngModel type="password" name="password" id="password">
+                </div>
+                <div class="form-controll">
+                    <label for="confirm">Confirm Password:</label>
+                    <input required ngModel type="password" name="confirm" id="confirm">
+                </div>
+            </div>
+
+            <div class="form-controll">
+                <label for="select">Select one:</label>
+                <select name="select" id="select" [ngModel]="genderSelection">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-controll">
+                <div *ngFor="let gender of genders">
+                    <label [for]="gender">{{ gender }}</label>
+                    <input required type="radio" name="gender" ngModel [id]="gender" [ngModel]="genderSelection" [value]="gender">
+                </div>
+            </div>
+            <div>
+                <button type="submit" [disabled]="!ttdForm.valid">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- REACTIVE FORM-->
+
+    <div class="container">
+        <h2>Reactive Form</h2>
+        <form [formGroup]="reactiveForm" (ngSubmit)="onReactiveSubmit()">
+            <div formGroupName="userDataReactive">
+
+                <div class="form-controll">
+                    <label for="name-reactive">Name:</label>
+                    <input formControlName="name" type="text" name="name" id="name-reactive">
+                </div>
+                <p *ngIf="!reactiveForm.get('userDataReactive.name').valid && reactiveForm.get('userDataReactive.name').touched">Please add name!</p>
+                <div class="form-controll">
+                    <label for="email-reactive">Email:</label>
+                    <input formControlName="email" type="email" name="email" id="email-reactive">
+                </div>
+                <div class="form-controll">
+                    <div *ngFor="let gender of genders">
+                        <label [for]="gender">{{ gender }}</label>
+                        <input formControlName="gender" required type="radio" name="gender"  [id]="gender" [value]="gender">
+                    </div>
+                </div>
+            </div>
+            <div  formArrayName="hobbies">
+                <h2>Add Hobbies</h2>
+                <button (click)="addHobby()">Add</button>
+                <div *ngFor="let hobby of getControls(); let i = index">
+                    <input type="text" [formControlName]="i">
+                </div>
+            </div>
+            <div formGroupName="passwords">
+                <div class="form-controll">
+                    <label for="password-reactive">Password:</label>
+                    <input formControlName="password" type="password" name="password" id="password-reactive">
+                </div>
+                <p *ngIf="!reactiveForm.get('passwords.password').valid && reactiveForm.get('passwords.password').touched">Please add password</p>
+                <div class="form-controll">
+                    <label for="confirm-reactive">Confirm Password:</label>
+                    <input type="password" name="confirm-reactive" id="confirm-reactive">
+                </div>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

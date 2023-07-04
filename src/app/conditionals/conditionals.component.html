@@ -1,0 +1,9 @@
+<h3>Conditionals</h3>
+<h4>Build-in ngIf</h4>
+<div *ngIf="visible">This is true</div>
+<ng-template [ngIf]="!visible">
+    <div>
+        This is false
+    </div>
+</ng-template>
+<button (click)="visible = !visible">Change to {{ !visible }}</button>

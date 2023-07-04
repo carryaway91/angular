@@ -1,0 +1,96 @@
+<div>
+    <h1>Observables</h1>
+    <h1 style="color: red; font-weight: bold;">cmd: json-server --watch db.json</h1>
+    <p><strong>vzdy sa subscribuje na observable, bud cez metodu subscribe v .ts 
+        subore alebo cez async | pipu v template
+        </strong>
+    </p>
+</div>
+<div style="display: flex" *ngIf="users$ | async as users">
+
+    <ul>
+        <li *ngFor="let user of users$ | async">{{ user.fName}}</li>
+    </ul>
+    
+    <ul>
+        <li *ngFor="let name of usernames$ | async">{{ name }}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li *ngFor="let filter of filteredUsers$ | async">{{ filter.fName }}</li>
+    </ul>
+    
+    <hr>
+    <ul>
+        <li *ngFor="let u of combinedUsers$ | async">{{ u }}</li>
+    </ul>
+    <hr>
+</div>
+<hr>
+
+<div>
+    POSTS
+    <ul *ngIf="posts1$ as data">
+        <li *ngFor="let d of data">{{ d.author + ' ' + d.title }}</li>
+    </ul>
+    <p *ngIf="error" style="color: red; font-weight: bold; background-color: lightpink;">An error has occured! Could
+    not fetch posts from the server!</p>
+</div>
+
+<hr>
+<div style="display: flex; justify-content: space-around;">
+
+    <div>
+
+        <h2>Only active</h2>
+        <ul>
+            <li *ngFor="let user of onlyActive$ | async">{{ user.fName }}</li>
+        </ul>
+    </div>
+    <div>
+
+        <h3>Combined streams</h3>
+        <div style="display: flex" *ngIf="data$ | async as data">
+            <ul>
+                <li *ngFor="let user of data.users">{{ user.fName }}</li>
+            </ul>
+            <ul>
+            <li *ngFor="let user of data.filteredUsers">{{ user.fName }}</li>
+        </ul>
+        <ul>
+            <li *ngFor="let user of data.combinedUsers">{{ user }}</li>
+        </ul>
+    </div>
+</div>
+</div>
+    
+    <div *ngIf="result$ | async as data">
+        {{ data }} with async pipe : {{ result$ | async }}
+    </div>
+    
+    <h2>Behaviour subject</h2>
+    <div *ngIf="behaviour$ | async as user">{{ user.fName }}</div>
+    <strong>Behaviour subject z API volania</strong>
+    <p *ngIf="error" style="color: red; font-weight: bold; background-color: lightpink;">An error has occured! Could
+        not fetch posts from the server!</p>
+    <hr>
+
+<h1>Posts from behaviour subject</h1>
+<ul *ngIf="(behaviour2$ | async) as data">
+    <li *ngFor="let post of data">Title: {{ post.title }}</li>
+</ul>
+
+<form #form="ngForm" (ngSubmit)="onSubmit()">
+    <input type="text" name="title" ngModel placeholder="Title">
+    <input type="text" name="author" ngModel placeholder="Author">
+    <button type="submit">SUbmit</button>
+</form>
+
+<h1>Localne ulozene a updatovane posty</h1>
+<ul>
+    <li *ngFor="let post of posts">{{ post.title }}</li>
+</ul>`
+<h1>Len Babejovi</h1>
+<ul *ngIf="babejs$ | async as babejs">
+    <li *ngFor="let babej of babejs">{{ babej.lName }}</li>
+</ul>

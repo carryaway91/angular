@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 174896673.6441191,
+      "title": "title",
+      "author": "asdasdasdds"
+    },
+    {
+      "id": 86945477.64590314,
+      "title": "ddd",
+      "author": "fffff"
+    },
+    {
+      "id": 283311226.7406144,
+      "title": "Novy post",
+      "author": "Noy Author"
+    },
+    {
+      "id": 273966839.55451024,
+      "title": "fdg",
+      "author": "fdgfdgd"
+    },
+    {
+      "id": 339865574.29796964,
+      "title": "asda",
+      "author": "sdaads"
+    },
+    {
+      "id": 159046364.88435563,
+      "title": "novy",
+      "author": "novy"
+    },
+    {
+      "id": 274046500.68832076,
+      "title": "dsf",
+      "author": "dsf"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

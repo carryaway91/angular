@@ -1,0 +1,5 @@
+<h3>Custom directives
+</h3>
+<p *appUnless="visible">This is true</p>
+<p *appUnless="!visible">This is false</p>
+<button (click)="visible = !visible">Change to {{ !visible }}</button>

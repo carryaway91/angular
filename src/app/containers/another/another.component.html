@@ -1,0 +1,12 @@
+<ul>
+    <li><a [routerLink]="['subchild', 1]" routerLinkActive="active">Subchild 1</a></li>
+    <li><a [routerLink]="['subchild', 2]" routerLinkActive="active">Subchild 2</a></li>
+</ul>
+<button (click)="onLogin()">Login</button>
+<button (click)="onLogout()">Logout</button>
+<p>You are {{ loggedIn ? "Logged in" : "Logged Out" }}</p>
+
+<input [(ngModel)]="value" (input)="checkSaved()"/>
+<button (click)="save()">Save</button>
+<p *ngIf="value">Your content is {{ saved ? 'Saved, you can leave the page!' : 'Unsaved, save before leaving the page!' }}</p>
+<router-outlet></router-outlet>

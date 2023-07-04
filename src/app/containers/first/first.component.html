@@ -1,0 +1,32 @@
+<app-cockpit 
+(serverCreated)="onServerAdded($event)"
+(onAddBlueprint)="onBlueprintAdded($event)"
+></app-cockpit>
+<hr>
+<div class="row">
+<div class="col-xs-12">
+  <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'blue'">Highlight on hover</p>
+  <app-button (onClicked)="onChangeFirst()">Change first element</app-button>
+  
+  <div [ngStyle]="{ display: 'flex'}">
+
+    <app-server-element *ngFor="let serverElement of serverElements"
+    [element]="serverElement"
+    [name]="serverElement.name"
+    >
+
+    <!-- #contentParagraph referencia, v ts file zachyt cez ContentChild pretoze je to content app-server-element-->
+    <!-- output je selector na ktory sa odvolavam v rodicovskom componente v ng-content -->
+    <p output #contentParagraph>
+      <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+      <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+    </p>
+  </app-server-element>
+</div>
+  <h2>Host binding/listener</h2>
+  <p appMyCustomDirective>Will change bg color upon click (custom directive)</p>
+  <app-conditionals></app-conditionals>
+  <app-custom-conditionals></app-custom-conditionals>
+</div>
+</div>
+<app-data-binding></app-data-binding>

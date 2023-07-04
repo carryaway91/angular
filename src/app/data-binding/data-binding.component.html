@@ -1,0 +1,37 @@
+<h1>Data binding and content projection</h1>
+<p>
+    Buttons are components which have ng-content in them and text is passed there
+    between opening and closing custom component tags
+</p>
+<hr />
+<div [ngStyle]="{ display: 'flex' }">
+  <div>
+    <h4>Attribute binding [style.backgroundColor]="'orange'"</h4>
+    <p [style.backgroundColor]="'orange'">This paragraph is orange</p>
+  </div>
+  <div>
+    <h4>Property binding [disabled]="true"</h4>
+    <app-button [disabled]="true">Disabled btn</app-button>
+  </div>
+  <div>
+    <h4>Event binding (click)="showAlert()"</h4>
+    <app-button (onClicked)="showAlert()">Alert!</app-button>
+  </div>
+  <div>
+    <h4>Two-way binding [(ngModel)]="value"</h4>
+    <div [ngStyle]="{ display: 'flex' }">
+      <input [(ngModel)]="value" />
+      <p>{{ value }}</p>
+    </div>
+  </div>
+  <app-generic-paragraph>
+    <span firstSpan>
+        This is first text
+    </span>
+  </app-generic-paragraph>
+  <app-generic-paragraph>
+    <span firstSpan>
+        This is second text
+    </span>
+  </app-generic-paragraph>
+</div>

@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <button (click)="animateColor()">Animate Color</button>
+    <div [@colorAnimation]="colorStateAnimation" style="background-color: green; width: 100px; height: 100px"></div>
+  </div>
+  <div>
+    <button (click)="animatePosition()">Animate translate</button>
+    <div [@positionAnimation]="positionState" style="background-color: black; width: 100px; height: 100px"></div>
+  </div>
+  <input type="text" [(ngModel)]="newItem" (keyup)="addItem($event)">
+  <ul>
+    <li *ngFor="let item of items; let idx = index"
+    [@appearAnimation]
+    >{{ item }} <button (click)="deleteItem(idx)">&times;</button></li>
+  </ul>
+</div>
+  <button (click)="activateModal()">Modal</button>

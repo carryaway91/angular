@@ -1,0 +1,7 @@
+<div>
+    <!-- #header je referencia, zachyt v TS ViewChild() -->
+    <div class="panel-heading" #header>{{ element.name }}</div>
+    <div class="panel-body">
+        <ng-content select="[output]"></ng-content>
+    </div>
+</div>

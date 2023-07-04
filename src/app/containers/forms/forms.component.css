@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+}
+
+.container {
+    margin: .5rem;
+    padding: 1.5rem
+}
+.container:first-child {
+    border: 1px dotted green
+}
+.container:nth-child(2) {
+    border: 1px dotted rgb(128, 51, 0)
+}
+
+.form-controll {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.form-controll input {
+    padding: .5rem 1rem
+}
+
+input.ng-invalid.ng-touched {
+    border:  1px solid red
+}

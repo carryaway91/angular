@@ -1,0 +1,14 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background: lightgreen;
+  transform: translateX(-10px);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+
+.appear {
+  border:2px solid black;
+  transform: translateX(0);
+  opacity: 1
+}
